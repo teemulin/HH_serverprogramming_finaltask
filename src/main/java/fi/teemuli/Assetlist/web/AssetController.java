@@ -1,20 +1,28 @@
 package fi.teemuli.Assetlist.web;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
+
+
+import fi.teemuli.Assetlist.domain.AssetRepository;
 
 @Controller
 public class AssetController {
+	
+	@Autowired
+	private AssetRepository arepository;
 	
 	@GetMapping("/")		//To direct user to right page for now
 	public String redirect() {
 		return "redirect:assetlist";
 	}
 	
-	@RequestMapping(value="assetlist", method=RequestMethod.GET) //could use @GetMapping("/assetlist") instead?
-	public String assetList() {
+	//Listing assets
+	@GetMapping("assetlist")
+ 	public String assetList(Model model) {
+		model.addAttribute("assets", arepository.findAll());
 		return "assetlist";
 	}
 

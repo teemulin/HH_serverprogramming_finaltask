@@ -14,7 +14,25 @@
 
         <div class="content-container">
             <div class="content">
-                <h2>This is empty page for now</h2>
+                <table>
+                    <tr>
+                        <th>Model</th>
+                        <th>Brand</th>
+                        <th>Serial</th>
+                        <th>Category</th>
+                        <th>Employee</th>
+                    </tr>
+
+                    <tbody>
+                        <tr th:each="asset : ${assets}">
+                            <td th:text="${asset.model}"></td>
+                            <td th:text="${asset.brand}"></td>
+                            <td th:text="${asset.serial}"></td>
+                            <td th:text="${asset.category.name}"></td>
+                            <td th:text="${asset.employee.fname} + ' ' + ${asset.employee.lname}"></td>
+                        </tr>
+                    </tbody>
+                </table>
             </div>
         </div>
 

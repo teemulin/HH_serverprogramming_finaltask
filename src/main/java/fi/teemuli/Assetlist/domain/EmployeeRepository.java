@@ -7,8 +7,7 @@ import org.springframework.data.repository.query.Param;
 import org.springframework.data.rest.core.annotation.RepositoryRestResource;
 
 @RepositoryRestResource
-public interface AssetRepository extends CrudRepository<Asset, Long> {
+public interface EmployeeRepository extends CrudRepository<Employee, Long>{
 	
-	List<Asset> findBySerial(@Param("serial") String serial);
-
+	List<Employee> findByEmail(@Param("email") String email);
 }
