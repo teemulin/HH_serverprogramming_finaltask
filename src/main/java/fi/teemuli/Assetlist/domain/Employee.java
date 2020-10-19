@@ -13,9 +13,9 @@ import com.fasterxml.jackson.annotation.JsonBackReference;
 
 @Entity
 public class Employee {
-	
+	 
 	@Id
-	@GeneratedValue(strategy=GenerationType.AUTO) //autogenerate ID by database for each employee
+	@GeneratedValue(strategy=GenerationType.AUTO) //auto-generate ID by database for each employee
 	private Long employeeid;
 	
 	private String fname, lname, email, phone;
@@ -74,6 +74,14 @@ public class Employee {
 
 	public void setPhone(String phone) {
 		this.phone = phone;
+	}
+
+	public List<Asset> getAssets2() {
+		return assets2;
+	}
+
+	public void setAssets2(List<Asset> assets2) {
+		this.assets2 = assets2;
 	}
 
 	@Override

@@ -15,7 +15,7 @@ import com.fasterxml.jackson.annotation.JsonBackReference;
 public class Category {
 	
 	@Id
-	@GeneratedValue(strategy=GenerationType.AUTO) //autogenerate ID by database for each category
+	@GeneratedValue(strategy=GenerationType.AUTO) //auto-generate ID by database for each category
 	private Long categoryid;
 	
 	private String name;

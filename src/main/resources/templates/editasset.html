@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html xmlns:th="http://thymeleaf.org">
+<head>
+    <meta http-equiv="Content-Type" content="text/html" charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link type="text/css" rel="stylesheet" th:href="@{../style.css}">
+    <title>Edit asset</title>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <div class="header-left">
+                <a th:href="@{/}">
+                    <p>B IT</p>
+                    <p class="sm">Best IT solutions!</p>
+                </a>
+            </div>
+            <div class="header-right">
+               <img src="../logo.png" alt="Here comes LOGO"> 
+            </div>            
+        </div>
+
+        <div class="content-container">
+            <div class="content">
+                <div class="content-header">
+                    <a th:href="@{/}">&larr; Back</a>
+                </div>
+                    <form class="form-container" th:object="${asset}" th:action="@{../save}" action="#" method="post">
+                        
+                        <input type="hidden" id="id" th:field="*{id}">
+
+                        <div class="form-object">
+                            <label for="model">Model</label>
+                            <input type="text" id="model" th:field="*{model}">
+                        </div>
+
+                        <div class="form-object">
+                            <label for="brand">Brand</label>
+                            <input type="text" id="brand" th:field="*{brand}">
+                        </div>
+
+                        <div class="form-object">
+                            <label for="serial">Serial</label>
+                            <input type="text" id="serial" th:field="*{serial}">
+                        </div>
+
+                        <div class="form-object">
+                            <label for="categorylist">Category</label>
+                            <select id="categorylist" th:field="*{category}">
+                                <option th:each="category: ${categories}" th:value="${category.categoryid}"
+                                 th:text="${category.name}"></option>
+                            </select>
+                        </div>
+
+                        <div class="form-object">
+                            <label for="employeelist">Employee</label>
+                            <select id="employeelist" th:field="*{employee}">
+                                <option th:each="employee: ${employees}" th:value="${employee.employeeid}" th:text="${employee.fname} + ' ' + ${employee.lname}"></option>
+                            </select>
+                        </div>
+                        <div class="content-footer">
+                            <input type="submit" value="Save">
+                        </div>
+                    </form>                    
+                </div>
+            </div>
+        </div>
+
+        <div class="footer">
+            &#169; Best IT solutions 2020
+        </div>
+    </div>
+</body>
+</html>

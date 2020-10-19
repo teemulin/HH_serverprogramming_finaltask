@@ -9,11 +9,22 @@
 <body>
     <div class="container">
         <div class="header">
-
+            <div class="header-left">
+                <a th:href="@{/}">
+                    <p>B IT</p>
+                    <p class="sm">Best IT solutions!</p>
+                </a>
+            </div>
+            <div class="header-right">
+                <img src="/logo.png" alt="Here comes LOGO">
+            </div>            
         </div>
 
         <div class="content-container">
             <div class="content">
+                <div class="content-header">
+                    IT-assets
+                </div>
                 <table>
                     <tr>
                         <th>Model</th>
@@ -21,6 +32,7 @@
                         <th>Serial</th>
                         <th>Category</th>
                         <th>Employee</th>
+                        <th></th>
                     </tr>
 
                     <tbody>
@@ -30,14 +42,21 @@
                             <td th:text="${asset.serial}"></td>
                             <td th:text="${asset.category.name}"></td>
                             <td th:text="${asset.employee.fname} + ' ' + ${asset.employee.lname}"></td>
+                            <td><a class="delbtn" th:href="@{/delete/{id}(id=${asset.id})}">Delete</a>
+                                <a class="editbtn" th:href="@{edit/{id}(id=${asset.id})}">Edit</a>
+                            </td>
                         </tr>
                     </tbody>
                 </table>
+                <div class="content-footer">
+                    <a class="btn1" href="/add">Add new asset</a>
+                    <a class="btn2" href="/new">Add new Employee</a>
+                </div>
             </div>
         </div>
 
         <div class="footer">
-
+            &#169; Best IT solutions 2020
         </div>
     </div>
 </body>

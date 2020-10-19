@@ -13,7 +13,7 @@ import com.fasterxml.jackson.annotation.JsonManagedReference;
 public class Asset {
 	
 	@Id
-	@GeneratedValue(strategy=GenerationType.AUTO) //autogenerate ID by database for each asset
+	@GeneratedValue(strategy=GenerationType.AUTO) //auto-generate ID by database for each asset
 	private Long id;
 	
 	private String model, brand, serial;
@@ -27,7 +27,7 @@ public class Asset {
 	@JsonManagedReference
 	@JoinColumn(name = "employeeid")
 	private Employee employee;
-	
+
 	public Asset() {
 		
 	}
@@ -91,10 +91,12 @@ public class Asset {
 
 	@Override
 	public String toString() {
-		return "Asset [id=" + id + ", model=" + model + ", brand=" + brand + ", serial=" + serial + ", category="
-				+ this.getCategory() + ", employee=" + this.getEmployee() + "]";
+		if(this.category != null || this.employee != null)
+			return "Asset [id=" + id + ", model=" + model + ", brand=" + brand + ", serial=" + serial + ", category="
+					+ this.getCategory() + ", employee=" + this.getEmployee() + "]";
+		else
+			
+		return "Asset [id=" + id + ", model=" + model + ", brand=" + brand + ", serial=" + serial + "]";
 	}
-
-	
 
 }
