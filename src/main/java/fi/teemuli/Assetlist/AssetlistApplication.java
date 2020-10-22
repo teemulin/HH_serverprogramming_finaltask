@@ -11,6 +11,8 @@ import fi.teemuli.Assetlist.domain.Category;
 import fi.teemuli.Assetlist.domain.CategoryRepository;
 import fi.teemuli.Assetlist.domain.Employee;
 import fi.teemuli.Assetlist.domain.EmployeeRepository;
+import fi.teemuli.Assetlist.domain.User;
+import fi.teemuli.Assetlist.domain.UserRepository;
 
 
 @SpringBootApplication
@@ -22,7 +24,7 @@ public class AssetlistApplication {
 	
 	//Using CommandLineRunner to have some data in demo database
 	@Bean
-	public CommandLineRunner assetdemo(AssetRepository arepository, CategoryRepository crepository, EmployeeRepository erepository) {
+	public CommandLineRunner assetdemo(AssetRepository arepository, CategoryRepository crepository, EmployeeRepository erepository, UserRepository urepository) {
 		return (args) -> {
 			
 			//Add few employee
@@ -41,6 +43,10 @@ public class AssetlistApplication {
 			arepository.save(new Asset("iPhone 12 pro", "Apple", "abp1234598765", crepository.findByName("Mobile").get(0), erepository.findByEmail("pete@example.com").get(0)));
 			arepository.save(new Asset("Lumia 5", "Nokia", "fi8902412413", crepository.findByName("Mobile").get(0), erepository.findByEmail("ma.ma@example.com").get(0)));
 			arepository.save(new Asset("Flatron MD2262", "LG", "6543217890", crepository.findByName("Laptop accessories").get(0), erepository.findByEmail("maija@example.com").get(0)));
+			
+			//Create users "admin/admin" & "user/user"
+			urepository.save(new User("admin","$2a$10$3Z3F8VaNZ.2xynPhTascI.4orEaNN6UTp7pjT3I5uISQDiRJju7zm", "admin@example.com", "ADMIN"));
+			urepository.save(new User("user","$2a$10$R30xQXgJyfZ31VT4yI.mJeAPn2AY.t2La/GWf9KmPbzfMMs/Ub6j2", "user@example.com", "USER"));
 			
 		};
 	}

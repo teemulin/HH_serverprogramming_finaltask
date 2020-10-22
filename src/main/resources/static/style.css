@@ -50,7 +50,7 @@
 }
 
 .content-header {
-    padding: 0 0 10px 0;
+    padding: 0 0 10px 0;    
 }
 
 .content-header a {
@@ -70,6 +70,10 @@
     border-radius: 5px;
     background-color: #f2f2f2;
     padding: 0 35px 10px 10px;
+}
+
+.login-form-object {
+    padding: 5px;
 }
 
 input[type=text], select {

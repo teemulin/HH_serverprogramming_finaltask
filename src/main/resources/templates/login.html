@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html xmlns:th="http://thymeleaf.org">
+<head>
+    <meta http-equiv="Content-Type" content="text/html" charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link type="text/css" rel="stylesheet" th:href="@{/style.css}">
+    <title>Welcome - Log in</title>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <div class="header-left">
+                <a th:href="@{/}">
+                    <p>B IT</p>
+                    <p class="sm">Best IT solutions!</p>
+                </a>
+            </div>
+            <div class="header-right">
+               <img src="/logo.png" alt="Here comes LOGO"> 
+            </div>            
+        </div>
+
+        <div class="content-container">
+            <div class="content">
+                <div class="content-header">
+                    
+                </div>
+                
+                <form class="form-container" th:action="@{/login}" method="post">
+                    
+                    <div class="login-form-object">
+                        Username: <input type="text" name="username">
+                    </div>
+
+                    <div class="login-form-object">
+                        Password: <input type="text" name="password">
+                    </div>
+                    
+                    <div class="content-footer">
+                        <input type="submit" value="Log in">
+                    </div>
+                </form>      
+                            
+            </div>
+        </div>
+
+        <div class="footer">
+            &#169; Best IT solutions 2020
+        </div>
+    </div>
+</body>
+</html>

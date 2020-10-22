@@ -23,46 +23,47 @@
         <div class="content-container">
             <div class="content">
                 <div class="content-header">
+                    <p>Placeholder text for user and logoff</p>
+                    <br>
                     <a th:href="@{/}">&larr; Back</a>
                 </div>
-                    <form class="form-container" th:object="${asset}" th:action="@{../save}" action="#" method="post">
-                        
-                        <input type="hidden" id="id" th:field="*{id}">
+                <form class="form-container" th:object="${asset}" th:action="@{../save}" action="#" method="post">
+                    
+                    <input type="hidden" id="id" th:field="*{id}">
 
-                        <div class="form-object">
-                            <label for="model">Model</label>
-                            <input type="text" id="model" th:field="*{model}">
-                        </div>
+                    <div class="form-object">
+                        <label for="model">Model</label>
+                        <input type="text" id="model" th:field="*{model}">
+                    </div>
 
-                        <div class="form-object">
-                            <label for="brand">Brand</label>
-                            <input type="text" id="brand" th:field="*{brand}">
-                        </div>
+                    <div class="form-object">
+                        <label for="brand">Brand</label>
+                        <input type="text" id="brand" th:field="*{brand}">
+                    </div>
 
-                        <div class="form-object">
-                            <label for="serial">Serial</label>
-                            <input type="text" id="serial" th:field="*{serial}">
-                        </div>
+                    <div class="form-object">
+                        <label for="serial">Serial</label>
+                        <input type="text" id="serial" th:field="*{serial}">
+                    </div>
 
-                        <div class="form-object">
-                            <label for="categorylist">Category</label>
-                            <select id="categorylist" th:field="*{category}">
-                                <option th:each="category: ${categories}" th:value="${category.categoryid}"
-                                 th:text="${category.name}"></option>
-                            </select>
-                        </div>
+                    <div class="form-object">
+                        <label for="categorylist">Category</label>
+                        <select id="categorylist" th:field="*{category}">
+                            <option th:each="category: ${categories}" th:value="${category.categoryid}"
+                                th:text="${category.name}"></option>
+                        </select>
+                    </div>
 
-                        <div class="form-object">
-                            <label for="employeelist">Employee</label>
-                            <select id="employeelist" th:field="*{employee}">
-                                <option th:each="employee: ${employees}" th:value="${employee.employeeid}" th:text="${employee.fname} + ' ' + ${employee.lname}"></option>
-                            </select>
-                        </div>
-                        <div class="content-footer">
-                            <input type="submit" value="Save">
-                        </div>
-                    </form>                    
-                </div>
+                    <div class="form-object">
+                        <label for="employeelist">Employee</label>
+                        <select id="employeelist" th:field="*{employee}">
+                            <option th:each="employee: ${employees}" th:value="${employee.employeeid}" th:text="${employee.fname} + ' ' + ${employee.lname}"></option>
+                        </select>
+                    </div>
+                    <div class="content-footer">
+                        <input type="submit" value="Save">
+                    </div>
+                </form>                    
             </div>
         </div>
 

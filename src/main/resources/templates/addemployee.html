@@ -23,34 +23,35 @@
         <div class="content-container">
             <div class="content">
                 <div class="content-header">
+                    <p>Placeholder text for user and logoff</p>
+                    <br>
                     <a th:href="@{/}">&larr; Back</a>
                 </div>
-                    <form class="form-container" th:object="${employee}" th:action="@{savee}" action="#" method="post">
-                       
-                        <div class="form-object">
-                            <label for="fname">First name</label>
-                            <input type="text" id="fname" th:field="*{fname}">
-                        </div>
+                <form class="form-container" th:object="${employee}" th:action="@{savee}" action="#" method="post">
+                    
+                    <div class="form-object">
+                        <label for="fname">First name</label>
+                        <input type="text" id="fname" th:field="*{fname}">
+                    </div>
 
-                        <div class="form-object">
-                            <label for="lname">Last name</label>
-                            <input type="text" id="lname" th:field="*{lname}">
-                        </div>
+                    <div class="form-object">
+                        <label for="lname">Last name</label>
+                        <input type="text" id="lname" th:field="*{lname}">
+                    </div>
 
-                        <div class="form-object">
-                            <label for="email">Email</label>
-                            <input type="text" id="email" th:field="*{email}">
-                        </div>
+                    <div class="form-object">
+                        <label for="email">Email</label>
+                        <input type="text" id="email" th:field="*{email}">
+                    </div>
 
-                        <div class="form-object">
-                            <label for="phone">Phone</label>
-                            <input type="text" id="phone" th:field="*{phone}">
-                        </div>
-                        <div class="content-footer">
-                            <input type="submit" value="Submit">
-                        </div>
-                    </form>                    
-                </div>
+                    <div class="form-object">
+                        <label for="phone">Phone</label>
+                        <input type="text" id="phone" th:field="*{phone}">
+                    </div>
+                    <div class="content-footer">
+                        <input type="submit" value="Submit">
+                    </div>
+                </form>                    
             </div>
         </div>
 

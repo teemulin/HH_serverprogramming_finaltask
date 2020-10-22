@@ -1,11 +1,14 @@
 package fi.teemuli.Assetlist.web;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import fi.teemuli.Assetlist.domain.Asset;
 import fi.teemuli.Assetlist.domain.AssetRepository;
@@ -27,6 +30,14 @@ public class AssetController {
 	private EmployeeRepository erepository;
 //End of CRUD injection	
 
+//Direct traffic to endpoints
+	
+	//Login
+	@GetMapping("/login")
+	public String login() {
+		return "login";
+	}
+		
 	//To direct user to desired start page from default address
 	@GetMapping("/")
 	public String redirect() {
@@ -38,6 +49,12 @@ public class AssetController {
  	public String assetList(Model model) {
 		model.addAttribute("assets", arepository.findAll());
 		return "assetlist";
+	}
+	
+	//REST listing (to test REST is working for now)
+	@GetMapping("assets")
+	public @ResponseBody List<Asset> assetListRest() {
+		return (List<Asset>) arepository.findAll();
 	}
 
 
