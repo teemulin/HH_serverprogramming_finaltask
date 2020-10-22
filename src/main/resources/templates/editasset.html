@@ -23,7 +23,10 @@
         <div class="content-container">
             <div class="content">
                 <div class="content-header">
-                    <p>Placeholder text for user and logoff</p>
+                    <p th:inline="text">Logged in as: [[${#httpServletRequest.remoteUser}]]</p>
+                    <form th:action="@{/logout}" method="post">
+                    <div class="logout"><input type="submit" value="Log Out"/></div>
+                    </form>
                     <br>
                     <a th:href="@{/}">&larr; Back</a>
                 </div>

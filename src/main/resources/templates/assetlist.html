@@ -23,8 +23,11 @@
         <div class="content-container">
             <div class="content">
                 <div class="content-header">
-                    <p>Placeholder text for user and logoff</p>
-                    <br>
+                    <p th:inline="text">Logged in as: [[${#httpServletRequest.remoteUser}]]</p>
+                    <form th:action="@{/logout}" method="post">
+                    <div class="logout"><input type="submit" value="Log Out"/></div>
+                    </form>
+                        <br>
                     <p>IT-assets</p>
                 </div>
                 <table>
@@ -34,7 +37,7 @@
                         <th>Serial</th>
                         <th>Category</th>
                         <th>Employee</th>
-                        <th></th>
+                        <th sec:authorize="hasAuthority('ADMIN')"></th>
                     </tr>
 
                     <tbody>
@@ -44,15 +47,15 @@
                             <td th:text="${asset.serial}"></td>
                             <td th:text="${asset.category.name}"></td>
                             <td th:text="${asset.employee.fname} + ' ' + ${asset.employee.lname}"></td>
-                            <td><a class="delbtn" th:href="@{/delete/{id}(id=${asset.id})}">Delete</a>
-                                <a class="editbtn" th:href="@{edit/{id}(id=${asset.id})}">Edit</a>
+                            <td sec:authorize="hasAuthority('ADMIN')"><a sec:authorize="hasAuthority('ADMIN')" class="delbtn" th:href="@{/delete/{id}(id=${asset.id})}">Delete</a>
+                                <a sec:authorize="hasAuthority('ADMIN')" class="editbtn" th:href="@{edit/{id}(id=${asset.id})}">Edit</a>
                             </td>
                         </tr>
                     </tbody>
                 </table>
                 <div class="content-footer">
-                    <a class="btn1" href="/add">Add new asset</a>
-                    <a class="btn2" href="/new">Add new Employee</a>
+                    <a sec:authorize="hasAuthority('ADMIN')" class="btn1" href="/add">Add new asset</a>
+                    <a sec:authorize="hasAnyAuthority('ADMIN', 'HR')" class="btn2" href="/new">Add new Employee</a>
                 </div>
             </div>
         </div>
