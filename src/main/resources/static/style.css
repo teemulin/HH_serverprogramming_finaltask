@@ -199,16 +199,16 @@ tr:nth-child(odd) {
 
 .logout input[type=submit] {
     margin-top: 5px;
-    background-color: #4CAF50;
-    color: white;
-    padding: 12px 20px;
+    background-color: #dddddd;
+    color: #f44336;
+    padding: 5px 5px;
     border: none;
-    border-radius: 4px;
+    border-radius: 50%;
     cursor: pointer;
-    width: 100px;
+    width: 80px;
     text-align: center;
   }
   
  .logout input[type=submit]:hover {
-    background-color: #45a049;
+    background-color: rgb(210, 210, 210);
   }

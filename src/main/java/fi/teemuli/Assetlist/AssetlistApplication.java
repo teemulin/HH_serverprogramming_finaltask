@@ -44,11 +44,11 @@ public class AssetlistApplication {
 			arepository.save(new Asset("Lumia 5", "Nokia", "fi8902412413", crepository.findByName("Mobile").get(0), erepository.findByEmail("ma.ma@example.com").get(0)));
 			arepository.save(new Asset("Flatron MD2262", "LG", "6543217890", crepository.findByName("Laptop accessories").get(0), erepository.findByEmail("maija@example.com").get(0)));
 			
-			//Create users "admin/admin", "user/user" & "hr/hr"
+			//Create users "admin/admin", "user/user" & "hrdept/hrdept"
 			//Role Admin can do everything, role user can only view list and role HR can add new employees
 			urepository.save(new User("admin","$2a$10$3Z3F8VaNZ.2xynPhTascI.4orEaNN6UTp7pjT3I5uISQDiRJju7zm", "admin@example.com", "ADMIN"));
 			urepository.save(new User("user","$2a$10$R30xQXgJyfZ31VT4yI.mJeAPn2AY.t2La/GWf9KmPbzfMMs/Ub6j2", "user@example.com", "USER"));
-			urepository.save(new User("hr","$2y$12$/P7x1ccq6xCZPGmVWpDMVeAU6s95zSe0zFahbd1kPgKbslmHFSnWK", "hr@example.com", "HR"));
+			urepository.save(new User("hrdept","$2a$10$Bq7r2AE.xT9osV1t6kpqBeViMChzroOqBYjP5uFe7tZghZ7T4LlDS", "hr@example.com", "HR"));
 			
 		};
 	}
