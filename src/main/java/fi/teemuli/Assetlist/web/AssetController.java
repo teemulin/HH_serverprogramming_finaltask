@@ -13,7 +13,6 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import fi.teemuli.Assetlist.domain.Asset;
 import fi.teemuli.Assetlist.domain.AssetRepository;
 import fi.teemuli.Assetlist.domain.CategoryRepository;
-import fi.teemuli.Assetlist.domain.Employee;
 import fi.teemuli.Assetlist.domain.EmployeeRepository;
 
 @Controller
@@ -93,7 +92,7 @@ public class AssetController {
 	}
 
 //EMPLOYEE manipulation
-	
+/*	
 	//Add new EMPLOYEE
 	//Part 1 -> direct to add page
 	@GetMapping("/new")
@@ -107,4 +106,29 @@ public class AssetController {
 		erepository.save(employee);
 		return "redirect:assetlist";
 	}
+	
+	/*
+	@PostMapping("/savee")
+	public String saveE(@ModelAttribute("employee") Employee employee, BindingResult bindingResult) {
+		if (!bindingResult.hasErrors()) {
+			
+			Employee newEmployee = new Employee();
+			newEmployee.setFname(employee.getFname());
+			newEmployee.setLname(employee.getLname());
+			newEmployee.setEmail(employee.getEmail());
+			newEmployee.setPhone(employee.getPhone());
+			if (erepository.findByEmail(employee.getEmail()) == null) {
+				erepository.save(newEmployee);
+			}
+			else {
+				bindingResult.rejectValue("email", "err.email", "Employee with this email already exists");
+				return "addemployee";
+			}
+		
+		}
+		else {
+			return "addemployee";
+		}
+		return "redirect:assetlist";
+	} */
 }

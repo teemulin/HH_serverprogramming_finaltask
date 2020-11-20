@@ -28,9 +28,9 @@ public class AssetlistApplication {
 		return (args) -> {
 			
 			//Add few employee
-			erepository.save(new Employee("Maija", "Meikäläinen", "maija@example.com", "0400123456"));
-			erepository.save(new Employee("Matti", "Mallikas", "ma.ma@example.com", "0501245789317"));
-			erepository.save(new Employee("Pertti", "Testikammoinen", "pete@example.com", "040321456987"));
+			erepository.save(new Employee("Maija", "Meikäläinen", "maija@example.com", "0401234567"));
+			erepository.save(new Employee("Matti", "Mallikas", "ma.ma@example.com", "0509873246"));
+			erepository.save(new Employee("Pertti", "Testikammoinen", "pete@example.com", "0409874563"));
 			
 			//Add some categories
 			crepository.save(new Category("Laptop"));
@@ -38,11 +38,11 @@ public class AssetlistApplication {
 			crepository.save(new Category("Laptop accessories"));
 			
 			//Add some assets
-			arepository.save(new Asset("Y720", "Lenovo", "12345678912345", crepository.findByName("Laptop").get(0), erepository.findByEmail("maija@example.com").get(0)));
-			arepository.save(new Asset("ThinkPad", "Lenovo", "98765432112345", crepository.findByName("Laptop").get(0), erepository.findByEmail("pete@example.com").get(0)));
-			arepository.save(new Asset("iPhone 12 pro", "Apple", "abp1234598765", crepository.findByName("Mobile").get(0), erepository.findByEmail("pete@example.com").get(0)));
-			arepository.save(new Asset("Lumia 5", "Nokia", "fi8902412413", crepository.findByName("Mobile").get(0), erepository.findByEmail("ma.ma@example.com").get(0)));
-			arepository.save(new Asset("Flatron MD2262", "LG", "6543217890", crepository.findByName("Laptop accessories").get(0), erepository.findByEmail("maija@example.com").get(0)));
+			arepository.save(new Asset("Y720", "Lenovo", "12345678912345", crepository.findByName("Laptop").get(0), erepository.findByPhone("0401234567").get(0)));
+			arepository.save(new Asset("ThinkPad", "Lenovo", "98765432112345", crepository.findByName("Laptop").get(0), erepository.findByPhone("0409874563").get(0)));
+			arepository.save(new Asset("iPhone 12 pro", "Apple", "abp1234598765", crepository.findByName("Mobile").get(0), erepository.findByPhone("0409874563").get(0)));
+			arepository.save(new Asset("Lumia 5", "Nokia", "fi8902412413", crepository.findByName("Mobile").get(0), erepository.findByPhone("0509873246").get(0)));
+			arepository.save(new Asset("Flatron MD2262", "LG", "6543217890", crepository.findByName("Laptop accessories").get(0), erepository.findByPhone("0401234567").get(0)));
 			
 			//Create users "admin/admin", "user/user" & "hrdept/hrdept"
 			//Role Admin can do everything, role user can only view list and role HR can add new employees

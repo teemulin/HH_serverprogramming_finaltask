@@ -30,26 +30,30 @@
                     <br>
                     <a th:href="@{/}">&larr; Back</a>
                 </div>
-                <form class="form-container" th:object="${employee}" th:action="@{savee}" action="#" method="post">
+                <form class="form-container" th:object="${employeeenroll}" th:action="@{/savee}" action="#" method="post">
                     
                     <div class="form-object">
                         <label for="fname">First name</label>
                         <input type="text" id="fname" th:field="*{fname}">
+                        <p th:if="${#fields.hasErrors('fname')}" th:errors="*{fname}" >Check name</p>
                     </div>
 
                     <div class="form-object">
                         <label for="lname">Last name</label>
                         <input type="text" id="lname" th:field="*{lname}">
+                        <p th:if="${#fields.hasErrors('lname')}" th:errors="*{lname}" >Check name</p>
                     </div>
 
                     <div class="form-object">
                         <label for="email">Email</label>
                         <input type="text" id="email" th:field="*{email}">
+                        <p th:if="${#fields.hasErrors('email')}" th:errors="*{email}" >Invalid email</p>
                     </div>
 
                     <div class="form-object">
                         <label for="phone">Phone</label>
                         <input type="text" id="phone" th:field="*{phone}">
+                        <p th:if="${#fields.hasErrors('phone')}" th:errors="*{phone}" >Invalid phone number</p>
                     </div>
                     <div class="content-footer">
                         <input type="submit" value="Submit">

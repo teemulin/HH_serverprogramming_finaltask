@@ -9,5 +9,6 @@ import org.springframework.data.rest.core.annotation.RepositoryRestResource;
 @RepositoryRestResource
 public interface EmployeeRepository extends CrudRepository<Employee, Long>{
 	
-	List<Employee> findByEmail(@Param("email") String email);
+	Employee findByEmail(String email);
+	List<Employee> findByPhone(@Param("phone") String phone);
 }

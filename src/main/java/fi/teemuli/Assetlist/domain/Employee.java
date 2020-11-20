@@ -3,11 +3,13 @@ package fi.teemuli.Assetlist.domain;
 import java.util.List;
 
 import javax.persistence.CascadeType;
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
+
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
 
@@ -16,9 +18,21 @@ public class Employee {
 	 
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO) //auto-generate ID by database for each employee
+	@Column(name = "employeeid", nullable = false, updatable = false)
 	private Long employeeid;
 	
-	private String fname, lname, email, phone;
+	
+	@Column(name = "fname", nullable = false)
+	private String fname;
+	
+	@Column(name = "lname", nullable = false)
+	private String lname;
+	
+	@Column(name = "email", nullable = false, unique = true)
+	private String email;
+	
+	@Column(name = "phone", nullable = false, unique = true)
+	private String phone;
 	
 	@JsonBackReference
 	@OneToMany(cascade = CascadeType.ALL, mappedBy ="employee")
