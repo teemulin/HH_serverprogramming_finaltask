@@ -1,6 +1,7 @@
 package fi.teemuli.Assetlist.web;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -19,6 +20,7 @@ public class EmployeeController {
 	private EmployeeRepository erepository;
 	
 	@GetMapping("/new")
+	@PreAuthorize("hasAnyAuthority('ADMIN', 'HR')")
 	public String addEmployee(Model model) {
 		model.addAttribute("employeeenroll", new EmployeeEnroll());
 		return "addemployee";

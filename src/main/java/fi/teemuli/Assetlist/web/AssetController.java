@@ -3,6 +3,7 @@ package fi.teemuli.Assetlist.web;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -61,6 +62,7 @@ public class AssetController {
 	
 	//Delete functionality
 	@GetMapping("/delete/{id}")
+	@PreAuthorize("hasAuthority('ADMIN')")
 	public String deleteAsset(@PathVariable("id") Long assetID, Model model) {
 		arepository.deleteById(assetID);
 		return "redirect:../assetlist";
@@ -69,6 +71,7 @@ public class AssetController {
 	//Add new ASSET
 	//Part 1 -> direct to add page
 	@GetMapping("/add")
+	@PreAuthorize("hasAuthority('ADMIN')")
 	public String addAsset(Model model) {
 		model.addAttribute("asset", new Asset());
 		model.addAttribute("categories", crepository.findAll());
@@ -84,6 +87,7 @@ public class AssetController {
 	
 	//Edit function
 	@GetMapping("/edit/{id}")
+	@PreAuthorize("hasAuthority('ADMIN')")
 	public String editAsset(@PathVariable("id") Long assetID, Model model) {
 		model.addAttribute("asset", arepository.findById(assetID));
 		model.addAttribute("categories", crepository.findAll());
