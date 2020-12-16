@@ -11,7 +11,7 @@ import fi.teemuli.Assetlist.domain.User;
 import fi.teemuli.Assetlist.domain.UserRepository;
 
 /**
- * This class is used by spring security to authenticate and authorize user
+ * This class is used by spring security to authenticate and authorize user 
  **/
 
 @Service

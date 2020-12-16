@@ -15,10 +15,16 @@ import fi.teemuli.Assetlist.domain.EmployeeRepository;
 
 @Controller
 public class EmployeeController {
-	
+
+//Inject CRUD functionality from repository-classes for Controller here
 	@Autowired
 	private EmployeeRepository erepository;
+//End of CRUD injection	
+
+//Employee manipulation
 	
+	//Add new EMPLOYEE
+	//Part 1 -> direct to add page
 	@GetMapping("/new")
 	@PreAuthorize("hasAnyAuthority('ADMIN', 'HR')")
 	public String addEmployee(Model model) {
@@ -26,6 +32,7 @@ public class EmployeeController {
 		return "addemployee";
 	} 
 	
+	//Part 2 -> Save added data
 	@PostMapping("/savee")
 	public String saveE(@ModelAttribute("employeeenroll") EmployeeEnroll employeeEnroll, BindingResult bindingResult) {
 		if (!bindingResult.hasErrors()) {
